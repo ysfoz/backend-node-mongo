@@ -21,3 +21,5 @@ export const MediaCard = ({ title, description, imgSrc }) => {
     </div>
   );
 };
+
+
