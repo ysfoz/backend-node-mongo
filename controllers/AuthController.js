@@ -67,12 +67,13 @@ exports.authLogin = async (req, res) => {
 
   //todo4 authentication -  JSON WEB TOKEN -JWT
 jwt.sign({ userData },process.env.JWT_SECRET_KEY,{expiresIn:3600},(err,token) => { 
+
   if(err){
     return res
     .status(400)
     .json({ errors: [{ message: "unknown error!!" }] });
   }
-  res.send(token)
+  res.status(202).json({token});
 })
 
 
@@ -80,5 +81,5 @@ jwt.sign({ userData },process.env.JWT_SECRET_KEY,{expiresIn:3600},(err,token) =>
   // TODO: user exist
   // TODO: password  compare
   // TODO: authentication -  JSON WEB TOKEN -JWT
-  res.send("Login Completed");
+  
 };
